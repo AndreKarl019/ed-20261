@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-    int saque, celula200, celula100, celula50, celula20, celula10, celula5, celula2;
-    printf("Qual o valor do saque: ");
-    scanf("%i",&saque);
+void saque(int saque){
     if(saque>1000){
         printf("Saque excede o limite!\n");
-        exit(1);
+        return;
     }
     if(saque<0){
         printf("Saque invalido!\n");
-        exit(1);
+        return;
     }
+    int celula200, celula100, celula50, celula20, celula10, celula5, celula2;
     int total = saque;
     celula200 = saque/200;
     saque = saque%200;
@@ -28,5 +26,27 @@ int main(){
     saque = saque%5;
     celula2 = saque/2;
     saque = saque%2;
-    printf("A menor quantia de notas eh: %i notas de 200, %i notas de 100, %i notas de 50, %i notas de 20, %i notas de 10, %i notas de 5, %i notas de 2", celula200, celula100, celula50, celula20, celula10, celula5, celula2);
+
+    if(saque == 1){
+        printf("valor vai faltar 1 real!\n");
+        return;
+    }
+    
+    printf("A menor quantia de notas eh: %i notas de 200, %i notas de 100, %i notas de 50, %i notas de 20, %i notas de 10, %i notas de 5, %i notas de 2\n", celula200, celula100, celula50, celula20, celula10, celula5, celula2);
+    return;
+};
+
+int main(){
+   printf("Testando sacar 1500 reais\n");
+   saque(1500);
+   printf("Testando sacar 900 reais\n");
+   saque(900);
+   printf("Testando sacar -100 reais\n");
+   saque(-100);
+   printf("Testando sacar 150 reais\n");
+   saque(150);
+   printf("Testando sacar 3 reais\n");
+   saque(3);
+    
+    return 0;
 }
