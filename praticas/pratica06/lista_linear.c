@@ -108,5 +108,5 @@ void lista_exibir(Lista *lista) {
 }
 
 void lista_destruir(Lista *lista) {
-    free(lista);cd
+    free(lista);
 }
