@@ -14,13 +14,15 @@ typedef struct fila_t{
 }Fila;
 
 Fila *fila_criar(){
-    Fila fila = (Fila) malloc(sizeof(Fila));
+    Fila *fila = (Fila*) malloc(sizeof(Fila));
 
     if (fila == NULL){
         return NULL;
     }
     fila->inicio = NULL;
     fila->fim = NULL;
+
+    return fila;
 }
 
 int fila_vazia(Fila *fila){
@@ -29,7 +31,7 @@ int fila_vazia(Fila *fila){
 }
 
 void fila_enfileirar(Fila *fila, int valor){
-    No no = (No) malloc(sizeof(No));
+    No *no = (No*) malloc(sizeof(No));
 
     no->valor = valor;
     no->proximo = NULL;
